@@ -1,0 +1,70 @@
+{
+	"name": "vscode-lombok",
+	"displayName": "Lombok Annotations Support for VS Code",
+	"description": "A lightweight extension to support Lombok annotations processing in Visual Studio Code",
+	"version": "0.9.8",
+	"publisher": "GabrielBB",
+	"icon": "images/icon.png",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.21.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/GabrielBB/vscode-lombok.git"
+	},
+	"keywords": [
+		"lombok",
+		"vs-code"
+	],
+	"categories": [
+		"Other"
+	],
+	"lombokConfig": {
+		"path": "/server/lombok.jar",
+		"vmArgsKey": "java.jdt.ls.vmargs",
+		"vmArgsValue": "-javaagent:\"{lombok-jar}\""
+	},
+	"main": "./out/index",
+	"activationEvents": [
+		"onLanguage:java",
+		"workspaceContains:pom.xml",
+		"workspaceContains:build.gradle"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "java",
+				"extensions": [
+					".java",
+					".jav"
+				],
+				"aliases": [
+					"Java",
+					"java"
+				]
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"package": "vsce package",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test",
+		"vscode:uninstall": "node ./out/uninstall"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^7.0.43",
+		"tslint": "^5.8.0",
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.33"
+	},
+	"__metadata": {
+		"id": "4b3ff6b3-747b-48b1-9593-61195ead981b",
+		"publisherId": "1d1259ab-0e59-4f1f-af95-426060d5894b",
+		"publisherDisplayName": "Gabriel Basilio Brito"
+	}
+}

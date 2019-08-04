@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 RUN apt-get update &&\
-apt-get install -y openjdk-11-jdk curl wget git wget curl openssl net-tools locales maven dumb-init sudo build-essential &&\
+apt-get install -y openjdk-11-jdk curl wget git wget curl openssl net-tools locales maven dumb-init sudo build-essential gradle &&\
 curl -sL https://deb.nodesource.com/setup_12.x | bash  &&\
 apt-get install -y yarn nodejs &&\
 apt-get clean 
